@@ -1,0 +1,7 @@
+modified code in for adjusted font size in:
+    file: `/workspaces/my_dash/sam_techmate/assets/javascripts/jquery.knob.js`
+    line: `,'font' : 'bold ' + ((this.o.width / (s * 1.5)) >> 0) + 'px Arial'`
+    makes the feedback-rating meter fit the custom star format.
+
+the google sheets retrieval script should ideally save to a file for ruby to retrieve
+    this accounts for when the script can't reach the api, ruby just gets the old file

@@ -10,4 +10,10 @@ current_karma = 0
 #  send_event('karma', { current: current_karma, last: last_karma })
  
 
-send_event('feedback-score',   { value: 9.9})
+# send_event('feedback-score',   { value: 9.95})
+
+SCHEDULER.every '4s' do
+    average_feedback_str = `python3 google_sheets_api_sync/print_sheet_stats.py`.chomp
+    average_feedback_float = average_feedback_str.to_f.round(2)
+    send_event('feedback-score',   { value: average_feedback_float})
+end
