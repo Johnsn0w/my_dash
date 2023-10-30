@@ -3,6 +3,7 @@
 from __future__ import print_function
 
 import os.path
+import json
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
@@ -10,16 +11,23 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
+
 # If modifying these scopes, delete the file token.json../
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
-
 SAMPLE_SPREADSHEET_ID = '1vxNCq73TBin1FY4BqgYNjVG8EQ3XpIta5b3xSKSf_nI'  # sheet shared from techmate account, "Delta"
-SAMPLE_RANGE_NAME = 'Smashing_sync_data!B5'
+SAMPLE_RANGE_NAME = 'Smashing_sync_data!sync_data'
 
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 TOKEN_PATH = os.path.join(SCRIPT_DIR, './token.json')
+JSON_FILE_PATH = os.path.join(SCRIPT_DIR, './sheets_data.json')
 
+def write_dict_to_json_file(data_dict, JSON_FILE_PATH):
+    try:
+        with open(JSON_FILE_PATH, 'w') as json_file:
+            json.dump(data_dict, json_file, indent=4, ensure_ascii=False)
+    except Exception as e:
+        print(f"Error writing to JSON file: {e}")
 
 # TOKEN_PATH = './token.json'
 
@@ -52,16 +60,21 @@ def main():
         sheet = service.spreadsheets()
         result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
                                     range=SAMPLE_RANGE_NAME).execute()
-        value = result.get('values', [])
+        values = result.get('values', [])
 
-        if not value:
+        if not values:
             print('No data found.')
             return
-        
-        print(f"{value[0][0]}")
+
+        # Create a dictionary from the two columns
+        data_dict = {row[0]: float(row[1]) for row in values if len(row) == 2}
+
+        write_dict_to_json_file(data_dict, JSON_FILE_PATH)
+
     except HttpError as err:
         print(err)
-
+    except ValueError as e:
+        print(f"Error converting value to float: {e}")
 def return_cell_data():
     pass
 
