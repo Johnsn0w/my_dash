@@ -4,6 +4,7 @@ from __future__ import print_function
 
 import os.path
 import json
+import pandas as pd
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
@@ -66,10 +67,14 @@ def main():
             print('No data found.')
             return
 
-        # Create a dictionary from the two columns
-        data_dict = {row[0]: float(row[1]) for row in values if len(row) == 2}
+        # Convert the data to a DataFrame
+        df = pd.DataFrame(values, columns=["Col_A", "Col_B", "Col_C"])
+
+        # Create a dictionary from the DataFrame
+        data_dict = df.set_index('Col_A')[['Col_B', 'Col_C']].to_dict(orient='index')
 
         write_dict_to_json_file(data_dict, JSON_FILE_PATH)
+
 
     except HttpError as err:
         print(err)
