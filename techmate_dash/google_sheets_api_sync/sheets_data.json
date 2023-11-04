@@ -1,4 +1,17 @@
 {
-    "feedback-score": 9.73,
-    "record-count": 118.0
+    "feedback_score": {
+        "Col_B": "feedback-score",
+        "Col_C": "9.7",
+        "Col_D": "value"
+    },
+    "record_count": {
+        "Col_B": "record-count",
+        "Col_C": "118",
+        "Col_D": "text"
+    },
+    "record_range": {
+        "Col_B": "record-count",
+        "Col_C": "This Year to date",
+        "Col_D": "selected-range"
+    }
 }

@@ -68,10 +68,10 @@ def main():
             return
 
         # Convert the data to a DataFrame
-        df = pd.DataFrame(values, columns=["Col_A", "Col_B", "Col_C"])
+        df = pd.DataFrame(values, columns=["Col_A", "Col_B", "Col_C", "Col_D"])
 
         # Create a dictionary from the DataFrame
-        data_dict = df.set_index('Col_A')[['Col_B', 'Col_C']].to_dict(orient='index')
+        data_dict = df.set_index('Col_A')[['Col_B', 'Col_C', "Col_D"]].to_dict(orient='index')
 
         write_dict_to_json_file(data_dict, JSON_FILE_PATH)
 
