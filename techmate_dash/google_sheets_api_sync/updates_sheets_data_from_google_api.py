@@ -15,13 +15,15 @@ from googleapiclient.errors import HttpError
 
 # If modifying these scopes, delete the file token.json../
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
-SAMPLE_SPREADSHEET_ID = '1vxNCq73TBin1FY4BqgYNjVG8EQ3XpIta5b3xSKSf_nI'  # sheet shared from techmate account, "Delta"
+SAMPLE_SPREADSHEET_ID = '1vxNCq73TBin1FY4BqgYNjVG8EQ3XpIta5b3xSKSf_nI'  # sheet shared from techmate account, "TESTING VERSION2 - SIGNIN DATA"
 SAMPLE_RANGE_NAME = 'Smashing_sync_data!sync_data'
 
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-TOKEN_PATH = os.path.join(SCRIPT_DIR, './token.json')
+TOKEN_PATH = os.path.join(SCRIPT_DIR, 'token.json')
+CREDENTIALS_PATH = os.path.join(SCRIPT_DIR, 'credentials.json')
 JSON_FILE_PATH = os.path.join(SCRIPT_DIR, './sheets_data.json')
+assert os.path.exists(CREDENTIALS_PATH), f"Error: {CREDENTIALS_PATH} file not found. You should generate this via google cloud console"
 
 def write_dict_to_json_file(data_dict, JSON_FILE_PATH):
     try:
@@ -33,9 +35,6 @@ def write_dict_to_json_file(data_dict, JSON_FILE_PATH):
 # TOKEN_PATH = './token.json'
 
 def main():
-    """Shows basic usage of the Sheets API.
-    Prints values from a sample spreadsheet.
-    """
     creds = None
     # The file token.json stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
@@ -48,7 +47,7 @@ def main():
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                TOKEN_PATH, SCOPES)
+                CREDENTIALS_PATH, SCOPES)
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
         with open(TOKEN_PATH, 'w') as token:

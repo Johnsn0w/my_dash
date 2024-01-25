@@ -1,17 +1,27 @@
 {
     "feedback_score": {
         "Col_B": "feedback-score",
-        "Col_C": "9.7",
+        "Col_C": "0",
         "Col_D": "value"
     },
     "record_count": {
         "Col_B": "record-count",
-        "Col_C": "118",
+        "Col_C": "0",
         "Col_D": "text"
     },
     "record_range": {
-        "Col_B": "record-count",
-        "Col_C": "This Year to date",
-        "Col_D": "selected-range"
+        "Col_B": "header-widget",
+        "Col_C": "Stats for Last 5 days",
+        "Col_D": "title"
+    },
+    "current_learning_record_count": {
+        "Col_B": "learning-improvement",
+        "Col_C": "1",
+        "Col_D": "current"
+    },
+    "previous_learning_record_count": {
+        "Col_B": "learning-improvement",
+        "Col_C": "1",
+        "Col_D": "last"
     }
 }

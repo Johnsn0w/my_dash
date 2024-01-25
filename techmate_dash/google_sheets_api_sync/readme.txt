@@ -1,5 +1,5 @@
 google quickstart for Sheets API
-creted using guide
+created using guide
     https://developers.google.com/sheets/api/quickstart/python
 
 

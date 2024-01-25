@@ -1,6 +1,9 @@
+sudo apt update
+pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
 sudo apt install ruby-dev ruby-bundler nodejs -y
 sudo gem install smashing
-smashing new my_cool_dashboard && cd my_cool_dashboard
+# smashing new my_cool_dashboard && cd my_cool_dashboard
+cd ./techmate_dash
 bundle install 
 smashing start
 
