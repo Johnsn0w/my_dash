@@ -1,3 +1,14 @@
+<script type='text/javascript'>
+$(function() {
+  // These settings override the defaults set in application.coffee. You can do this on a per dashboard basis.
+  // Dashing.gridsterLayout('[{"col":2,"row":1},{"col":1,"row":1},{"col":3,"row":1},{"col":2,"row":2},{"col":3,"row":2},{"col":1,"row":2},{"col":5,"row":1},{"col":4,"row":2},{"col":2,"row":3}]')
+  // Dashing.widget_base_dimensions = [370, 340]
+  Dashing.numColumns = 3
+});
+</script>
+
+
+
 <% content_for :title do %>Techmate Dashboard<% end %>
 <div class="gridster">
   <ul>
@@ -6,15 +17,15 @@
     </li>
 
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="feedback-score" data-view="Meter" data-title="Feedback score" data-height="200" data-width="200" data-min="0" data-max="10" data-suffix="⭐"></div>
+      <div data-id="feedback-score" data-view="Meter" data-title="Feedback score" data-height="200" data-width="200" data-min="0" data-max="10" data-suffix="⭐"  data-moreinfo=""></div>
     </li>
-    
-    <%# <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="testing-widget" data-view="testingwidget"></div>
-    </li> %>
 
+    <%# <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="client-stats" data-view="Text" data-title="Client Stats" data-moreinfo=""></div>
+    </li> %>
+    
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="learning-improvement" data-view="Number" data-title="Learning Improvement" data-moreinfo="insert time range" data-suffix="%" data-current="80" data-last="50"></div>
+      <div data-id="learning-improvement" data-view="Number" data-title="Learning Improvement" data-moreinfo="" data-suffix="%" data-current="err"></div>
     </li>
   </ul>
 </div>

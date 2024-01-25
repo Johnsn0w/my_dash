@@ -1,27 +1,27 @@
 {
     "feedback_score": {
         "Col_B": "feedback-score",
-        "Col_C": "0",
+        "Col_C": "9.7",
         "Col_D": "value"
     },
     "record_count": {
         "Col_B": "record-count",
-        "Col_C": "0",
+        "Col_C": "118",
         "Col_D": "text"
     },
-    "record_range": {
-        "Col_B": "header-widget",
-        "Col_C": "Stats for Last 5 days",
-        "Col_D": "title"
+    "record_time_range": {
+        "Col_B": "feedback-score",
+        "Col_C": "Stats for Last year",
+        "Col_D": "moreinfo"
     },
-    "current_learning_record_count": {
+    "learning_record_count": {
         "Col_B": "learning-improvement",
-        "Col_C": "1",
+        "Col_C": "157",
+        "Col_D": "count"
+    },
+    "learning_avg_score_improvement": {
+        "Col_B": "learning-improvement",
+        "Col_C": "74",
         "Col_D": "current"
-    },
-    "previous_learning_record_count": {
-        "Col_B": "learning-improvement",
-        "Col_C": "1",
-        "Col_D": "last"
     }
 }
